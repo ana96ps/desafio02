@@ -1,0 +1,126 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-12-14T02:19:24.497Z",
+    "end": "2021-12-14T02:19:49.919Z",
+    "duration": 25422,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a3a6b0ae-7d1a-462e-9292-eb44980c566a",
+      "title": "",
+      "fullFile": "cypress/integration/cadastro.spec.js",
+      "file": "cypress/integration/cadastro.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1897b953-3e10-4fea-85dc-d94d7d0b7a50",
+          "title": "Cadastro",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Quando o usuário informar um e-mail inválido, então o sistema exibirá uma mensagem de erro e não será possível prosseguir com o cadastro",
+              "fullTitle": "Cadastro Quando o usuário informar um e-mail inválido, então o sistema exibirá uma mensagem de erro e não será possível prosseguir com o cadastro",
+              "timedOut": null,
+              "duration": 8021,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://automationpractice.com/index.php');\ncy.get('.login').click();\ncy.get('input[name=email_create]').type(emailInvalido.replace('@', '#'));\ncy.get('button[name=SubmitCreate]').click();\ncy.get('#create_account_error').should('contain.text', 'Invalid email address.');",
+              "err": {},
+              "uuid": "7634e212-b452-44d2-b0f3-53d126498c7a",
+              "parentUUID": "1897b953-3e10-4fea-85dc-d94d7d0b7a50",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Quando o usuário informar dados válidos, então o cadastro será efetuado",
+              "fullTitle": "Cadastro Quando o usuário informar dados válidos, então o cadastro será efetuado",
+              "timedOut": null,
+              "duration": 14491,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://automationpractice.com/index.php');\ncy.get('.login').click();\ncy.get('input[name=email_create]').type(chance.email());\ncy.get('button[name=SubmitCreate]').click();\ncy.get('#id_gender1').check();\ncy.get('#customer_firstname').type(firstName);\ncy.get('#customer_lastname').type(lastName);\ncy.get('input[name=passwd]').type('pass@w0rds');\ncy.get('select[name=days]').select(chance.d30());\ncy.get('select[name=months]').select(chance.month());\ncy.get('select[name=years]').select('1996');\ncy.get('input[name=optin]').check();\ncy.get('input[name=company]').type(chance.company());\ncy.get('#address1').type(chance.address());\ncy.get('input[name=city]').type(chance.city());\ncy.get('select[name=id_state]').select('Oklahoma');\ncy.get('input[name=postcode]').type('12345');\ncy.get('textarea[name=other]').type('Cypress Test');\ncy.get('input[name=phone_mobile]').type(chance.phone());\ncy.get('button[name=submitAccount]').click();\ncy.url().should('contain', 'my-account');\ncy.get('.account').should('contain', firstName + \" \" + lastName);\ncy.get('[title=\"View my shopping cart\"]').should('contain.value', '');",
+              "err": {},
+              "uuid": "f5ff3f17-83a6-418b-8db7-d963e47a7ce2",
+              "parentUUID": "1897b953-3e10-4fea-85dc-d94d7d0b7a50",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7634e212-b452-44d2-b0f3-53d126498c7a",
+            "f5ff3f17-83a6-418b-8db7-d963e47a7ce2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22512,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reporterDir": "mochawesome-report",
+        "quiet": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.0.1"
+    }
+  }
+}
