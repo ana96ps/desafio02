@@ -1,8 +1,9 @@
-name: Testes Funcionalidade Cadastro Desafio02
+name: Testes Cadastro
 
 on:
   push:
     branches: [ main ]
+  
 
 jobs:
   build:
@@ -10,24 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+     # Download do código
     - uses: actions/checkout@v2
+    
     - name: Use Node.js
       uses: actions/setup-node@v2
       with:
         node-version: 14.x
-        cache: 'npm'
     - run: npm install
     - run: npm run cy:run
       continue-on-error: true
       
-    - run: npm run report-merge
+    - run: npm run report:merge
     - run: npm run report:mocha
     
     #GitHub Pages
     
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.7
-      with:
+      with: 
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             BRANCH: gh-pages
             FOLDER: mochawesome-report
